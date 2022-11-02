@@ -1,0 +1,27 @@
+{% extends "web/base.html" %}
+
+{% load crispy_forms_tags  %}
+
+{% block content %}
+
+{% if form.errors%} 
+<div class="alert alert-warning" role="alert">
+    <h4 class="alert-heading">¡Upppsss....! algo salió mal</h4>
+    </div>
+ {% endif %}
+
+<div class="continer formulario_anadir">
+    <h3 align="center">Actualización de articulos</h3>
+    <form action= "{% url 'articuloActualizado' articulo.id %}" method="POST">
+        {% csrf_token %}
+   
+    
+        {{ form|crispy}}
+    
+    <p></p>
+    <button type="submit">ACTUALIZAR</button>
+    <a id="buttonA" href="{% url 'listaArticulos' %}">CANCELAR</a>
+   </form> 
+</div>     
+{% endblock %}
+

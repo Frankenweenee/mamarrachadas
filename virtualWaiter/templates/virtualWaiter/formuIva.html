@@ -1,0 +1,31 @@
+
+
+<form action= "{% url 'guardarIva' %}" method="POST">
+    {% csrf_token %}
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                 
+                  <th scope="col">Tipo IVA</th>
+            
+                </tr>
+              </thead>
+              <tbody>
+                {% for articulo in form %}
+                <tr>
+                  <th scope="row">{{articulo.id}} </th>
+                  <td>{{artilulo.porcentual}} </td>
+                  <td>{{artilulo.tipo_de_iva}} </td>
+                  
+                  <td><a class="btn btn-warning" href="#">Editar</a>
+                      <a class="btn btn-danger" href="#">Eliminar</a> </td>
+                      
+                </tr>
+                {% endfor%}
+    <p>
+
+    </p>
+    <button type="submit" class="btn btn-info">AGREGAR</button>
+    <a class="btn btn-secondary" href="{% url 'listaArticulos' %}">CANCELAR</a>
+    </form>

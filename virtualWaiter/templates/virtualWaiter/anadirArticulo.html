@@ -1,0 +1,29 @@
+{% extends "web/base.html" %}
+
+{% load crispy_forms_tags  %}
+
+{% block content %}
+
+{% if form.errors%} 
+<div class="warning">
+    <h4 class="alert-heading">¡Upppsss....! algo salió mal</h4>
+</div>
+ {% endif %}
+
+<div class="continer formulario_anadir">
+    <h2 align="center">AÑADIR ARTÍCULO</h2>
+    <form id="form" action= "{% url 'guardarArticulo' %}" method="POST">
+            {% csrf_token %}
+   
+            {{ form|crispy}}
+   
+        <p></p>
+        <button type="submit">AGREGAR</button>
+        <a id="buttonA" href="{% url 'listaArticulos' %}">CANCELAR</a>
+    </form>   
+     
+</div>
+{% endblock %}
+
+
+

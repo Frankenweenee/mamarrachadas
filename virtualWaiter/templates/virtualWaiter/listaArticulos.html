@@ -1,0 +1,84 @@
+{% extends "web/base.html" %}
+
+
+{% block content %}
+
+<!--esto tiene que ser un cotiner-->
+
+<h3 class="mb-2" align="center">Articulos en carta</h3>
+<a href="{% url 'form' %}" class="btn btn-info mb-2 col-md-3">AGREGAR NUEVO ARTICULO</a>
+<!--carga como pregunta para asegurar el borrado-->
+
+{% if mensaje_borrado %}
+
+<form method="POST" action=""> 
+ 
+  {% csrf_token%} 
+  
+  <strong>¿estás seguro de querer borrar este artículo?</strong>
+    <input class="btn" type="submit" value="Yes" />
+    <a href="{% url 'listaArticulos' %}">
+      <div class="btn">Cancelar</div></a>
+</form>
+
+{% endif %}
+
+<!--mensaje se carga como success al crear un artículo-->
+
+{% if mensaje_creado %} 
+
+  <div class="alert alert-success" role="alert">
+    <strong>¡Artículo creado!</strong>
+  </div>
+   {% endif %}
+
+<!--mensaje se carga como succsess si un articulo es editado-->
+
+{% if mensaje_editado %}
+   <div class="alert alert-success" role="alert">
+       <strong>¡Artículo editado!</strong>
+   </div>
+{% endif %}
+
+<!--mensaje se carga como success si un articulo es borrado-->
+
+{% if mensaje_borrar %}
+    <div class="alert alert-warning" role="alert">
+        <strong>¡Artículo borrado!</strong>
+    </div>
+{% endif %}
+
+<!--cuerpo de la carta-->
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+        <th scope="col">Artículo</th>
+        <th scope="col">Categoria</th>
+        <th scope="col">Precio</th>
+        <th scope="col">Tipo IVA</th>
+        <th scope="col">Edición</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for articulo in articulo %}
+    <tr>
+      <th>{{articulo.id}} </th>
+      <td>{{articulo.articulo}} </td>
+      <td>{{articulo.categoria}} </td>
+      <td>{{articulo.precio}} </td>
+      <td>{{articulo.iva}}</td>
+      <td><a class="btn btn-warning" href="{% url 'articuloEdit' articulo.id %}">Editar</a>
+          <a class="btn btn-danger" href="{% url 'delete' articulo.id %}">Eliminar</a> </td>
+    </tr>
+    {% endfor %}
+    <!--llama el mensaje si se preciona el boton de borrar-->
+    {% if 'delete' %} 
+
+    {% endif %}
+  </tbody>
+</table>
+
+
+{% endblock  %}
