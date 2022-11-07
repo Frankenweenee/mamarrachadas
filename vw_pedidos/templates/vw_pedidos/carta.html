@@ -1,0 +1,112 @@
+
+{% extends "web/base.html" %}
+
+
+{% block content %}
+
+{% load static %}
+
+<div class="continer carta" style="background-image: url('{% static "img/fondo_carta1.jpg" %}')">
+  <table>
+    <div>
+      <h2 id="titulo">NUESTRA CARTA</h2>
+    </div>
+    <tbody>
+      <!--div de los entrantes-->
+      <div>
+        <tr>
+          <td><h4>NUESTROS ENTRANTES</h4></td>
+        </tr>
+        {% for articulo in entrantes %}  
+              
+        <tr>
+          <td id="col_1"> {{articulo.articulo}}</td> 
+          <td id="col_2"> {{articulo.precio}}</td>
+          <td id="col_3"><a id="buttonA" href="{% url 'carro:agregar' articulo.id %}">Pedir</a></td>
+        </tr>
+         
+        {% endfor %}
+        
+      <div>
+        <tr>
+          <td><h4>DELICIOSAS ENSALADAS</h4></td>
+        </tr>
+        {% for articulo in ensaladas %}  
+              
+        <tr>
+          <td id="col_1"> {{articulo.articulo}}</td> 
+          <td id="col_2"> {{articulo.precio}}</td>
+          <td id="col_3"><a id="buttonA" href="{% url 'carro:agregar' articulo.id %}">Pedir</a></td>
+        </tr>
+
+        {% endfor %}
+        
+      </div>
+      <div>
+        <tr>
+          <td><h4>NUESTRA PASTA</h4></td>
+        </tr>
+        {% for articulo in pastas %}  
+              
+        <tr>
+          <td id="col_1"> {{articulo.articulo}}</td> 
+          <td id="col_2"> {{articulo.precio}}</td>
+          <td id="col_3"><a id="buttonA" href="{% url 'carro:agregar' articulo.id %}">Pedir</a></td>
+        </tr>
+        
+        {% endfor %}
+        
+      </div>
+      <div>
+        <tr>
+          <td><h4>DI NOSTRO PIZZAIOLO</h4></td>
+        </tr>
+        {% for articulo in pizzas %}  
+              
+        <tr>
+          <td id="col_1"> {{articulo.articulo}}</td> 
+          <td id="col_2"> {{articulo.precio}}</td>
+          <td id="col_3"><a id="buttonA" href="{% url 'carro:agregar' articulo.id %}">Pedir</a></td>
+        </tr>
+        
+        {% endfor %}
+        
+      </div>
+      <div>
+        <tr>
+          <td><h4>NUESTROS POSTRES</h4></td>
+        </tr>
+        {% for articulo in postres %}  
+              
+        <tr>
+          <td id="col_1"> {{articulo.articulo}}</td> 
+          <td id="col_2"> {{articulo.precio}}</td>
+          <td id="col_3"><a id="buttonA" href="{% url 'carro:agregar' articulo.id %}">Pedir</a></td>
+        </tr>
+         
+        {% endfor %}
+        
+      </div>
+      <div>
+        <tr>
+          <td><h4>BEBIDAS</h4></td>
+        </tr>
+        {% for articulo in bebidas %}       
+        <tr>
+          <td id="col_1"> {{articulo.articulo}}</td> 
+          <td id="col_2"> {{articulo.precio}}</td>
+          <td id="col_3"><a id="buttonA" href="{% url 'carro:agregar' articulo.id %}">Pedir</a></td>
+        </tr> 
+        {% endfor %}
+      </div>
+  
+    </tbody>
+  </table>
+  <div>
+    {% include 'vw_pedidos/pedidos.html' %}
+  </div>
+  <div>
+    <p style="align-text right">Total: {{importe_total_pedido}} </p>
+  </div>
+<div>
+{% endblock  %}

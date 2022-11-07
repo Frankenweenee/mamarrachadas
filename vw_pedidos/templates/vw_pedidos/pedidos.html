@@ -1,0 +1,23 @@
+
+    <table class="table">
+        <thead>
+            <th><h3>PEDIDO</h3></tr>
+        </thead>
+        <tbody>
+                <div>
+                {% if request.session.carro.items %} 
+                        {% for key, value in request.session.carro.items %} 
+                    <tr>
+                        <td>{{value.cantidad}}</td>
+                        <td>{{value.articulo}}</td>
+                        <td>{{value.precio}}</td>
+                        <td><a id="buttonA" href="{% url 'carro:agregar' value.id_articulo %}">+</a>
+                            <a id="buttonA" href="{% url 'carro:restar' value.id_articulo %}">-</a></td>
+                    </tr>
+                
+                </div>
+            {% endfor %}
+            {% endif %}
+        
+        </tbody>
+    </table>

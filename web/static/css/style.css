@@ -1,0 +1,166 @@
+
+body {
+    background: rgb(59, 171, 162);
+    grid-template-columns: auto;
+    margin: auto;
+    font-family: sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: antiquewhite;
+}
+
+/*entradas de texto*/
+
+input[type=text],
+select,
+input[type=number] {
+    width: 100%;
+    border-radius: 4px;
+    border: none;
+    padding: 5px;
+    margin: 3px;
+}
+
+/*estilos de los botones*/
+
+button[type=submit],
+#buttonA,
+.btn {
+    font-size: 12px;
+    margin: 10px;
+    background-color: dimgray;
+    color: antiquewhite;
+    padding: 2px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/*contenedor principal, dos columnas*/
+
+#main_continier {
+    display: grid;
+    height: 400px;
+    margin-top: 30px;
+    grid-template-columns: 35% 65%;
+}
+
+/* en este contenedor van las cargas de las paginas*/
+
+#carga{
+    
+    align-items: center;
+    margin: auto;
+}
+
+/* estilo del menú de inicio*/
+
+#menu{
+    margin:auto;  
+}
+
+#menu a {
+    margin: 10%;
+    text-decoration: none;
+    color: antiquewhite;
+    font-family: 'Antonio', sans-serif;
+    font-size: 80px; 
+}
+
+#menu a:hover{
+    color: rgb(89, 100, 101)
+}
+
+/* estilos del virtual waiter*/
+
+.formulario_anadir {
+    width: 400px;
+    height: 100%;
+    padding: 15px;
+    background-color: rgb(66, 97, 97);
+    border: 5px;
+    font-size: 15px;
+    text-decoration: none;
+    font-family: sans-serif;
+    color: antiquewhite;
+    border-radius: 10px;
+}
+
+.carta {
+    width: 400px;   
+}
+
+#titulo {
+    text-align:  center;
+    padding-top: 20px;
+}
+h4 {
+    text-align: center;
+}
+#col_1 {
+    width: 80%;
+    padding-left: 10px;
+}
+#col_2 {
+    width: 10%;
+    text-align: right;
+}
+#col_3 {
+    width: 10%;
+    text-align: right;
+}
+@media (max-width: 400px) {
+    .carta {
+        width: 100%;
+    }
+    .formulario_anadir {
+        width: 100%;
+        height: 100%;
+        padding: 15px;
+        background-color: rgb(66, 97, 97);
+        border: 5px;
+        font-size: 15px;
+        text-decoration: none;
+        font-family: sans-serif;
+        color: antiquewhite;
+        border-radius: 10px;
+    }
+
+}
+/* css del juego de rol*/
+#game{
+    position: relative;
+    background-image: url('static/img/fondo.jpg');
+    border-radius: 4px;
+    width: 350px;
+    height: 500px;
+    padding-top: 1px; 
+}
+
+/* la nube de conversación del juego*/
+
+.cloud{
+    border-radius: 4px;
+    background-color: bisque;
+    color: black;
+    margin: 7px;
+    padding: 5px;
+}
+.fondo{
+    position: absolute;
+    bottom: -4px;
+    left: 0;  
+}
+
+#btn_game{
+    color: white;
+    margin-left: 50%;
+    transform: translateX(-40%);
+
+}

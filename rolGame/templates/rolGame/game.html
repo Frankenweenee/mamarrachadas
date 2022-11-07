@@ -1,0 +1,30 @@
+{% extends "web/base.html" %}
+
+{% block content %}
+{% load static %}
+
+<div id="game" style="background-image: url('{% static "img/fondo.jpg"%}')">
+   
+    <div class="cloud">
+        <div>
+           {% for mision in misiones%}
+                {{mision.descripcion_tarea}}
+                <div id="btn_game">
+                    <a class"btn" href={% url 'fly' %}>Vamos allá</a>
+                </div>
+            {% endfor %}
+            {{name}}
+
+            {% if 'game_fly' %}
+                {% for mision in misiones2 %}
+                    {{mision.descripcion_tarea}}
+                {% endfor %}
+
+            {% endif %}
+            <div>
+    </div>
+    <div class="fondo">
+        <img src="{% static 'img/nave_posada.png' %}" alt="nave">
+    </div>
+</div>
+{% endblock %}

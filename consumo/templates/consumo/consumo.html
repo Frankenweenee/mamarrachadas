@@ -1,0 +1,14 @@
+{% extends 'web/base.html' %}
+{% load static %}
+{% block content  %}
+
+   <p><h2> <a href="{% url 'form' %}">Virtual Waiter</a></h2></p>
+
+   <p><h2><a href="{% url 'listaArticulos' %}">Widjets</a></h2></p>
+    <p><h2><a href="{% url 'start' %}">Juego de rol</a></h2></p>
+
+    <p><h2><a href="{% url 'carro:carta' %}">carta</a></h2></p>
+    
+
+
+{% endblock  %}

@@ -1,0 +1,18 @@
+{% extends "web/base.html" %}
+
+{% block content %}
+<div id="main_continier">
+    <div id="menu">
+        <div>
+            <a class="nav-link"sytle="align-left" href="{% url 'inicio' %}">PERFIL</a>
+        </div>
+        <div>
+            <a class="nav-link" href="{% url 'consumo' %}">PORTAFOLIO</a>
+        </div>
+        <div>
+            <a class="nav-link" href="{% url 'extra' %}" >CONTACTO</a>
+        </div>
+
+    </div>       
+</div>
+{% endblock %}
